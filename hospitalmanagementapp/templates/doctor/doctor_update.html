@@ -1,0 +1,44 @@
+{% block content %}
+<form method="POST" action="{% url 'hospitalmanagementapp:doctor-update' object.id %}" enctype="multipart/form-data">
+	{% csrf_token %}
+	<div class="modal-header">
+		<h4 class="modal-title"> Update Doctor</h4>
+	</div>
+	<div class="modal-body">
+		{{ form.non_field_errors }}
+		{% for f in form %}
+			<div class="form-group">
+				<label> {{ f.label }} </label>
+				{{ f }}
+			</div>
+		{% endfor %}
+		<img id="output_image"/ style="width:100px;" "height: 100px;">
+		<button type="submit" class="btn btn-primary"> Update </button>
+	</div>
+</form>
+{% endblock content %}
+
+{% block js %}
+{% if messages %}
+	{% for message in messages %}
+		<script>
+			swal({
+				title:'Good Job!',
+				text: '{{ message }}',
+				icon: 'success'
+			})
+		</script>
+	{% endfor %}
+{% endif %}
+
+<script>
+	var loadFile = function(even){
+		var reader = new FileReader();
+		reader.onload = function(){
+			var output = document.getElementById('output_image');
+			output.src = reader.result;
+		};
+		reader.readAsDataURL(event.target.files[0]);
+	};
+</script>
+{% endblock js %}

@@ -1,0 +1,171 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Medicative Hospital || Health & Medical HTML Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="{% static 'admin/css/bootstrap.min.css' %}">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/css/style.css' %}">
+
+    <!-- Responsive stylesheet  -->
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/css/responsive.css' %}">
+
+    <!-- Favicon -->
+    <link href="{% static 'admin/img/favicon.png' %}" rel="shortcut icon" type="image/png">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+
+    <!-- Header navbar start -->
+    <div class="header-topbar style-2">
+        <div class="container padding-none">
+            <div class="row">
+                <div class="col-md-8 col-sm-6 welcome-top">
+                    <ul class="list-inline top-icon">
+                        <li><i class="fa fa-envelope"></i> contact@youdomain.com</li>
+                        <li><i class="fa fa-clock-o"></i> Mon - Sat 8.00 - 18.00</li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" data-hover="dropdown" data-animations-delay="1.8s" data-animations="fadeInUp">
+                    <ul class="nav navbar-nav navbar-right style-3">
+                        <li class="dropdown active">
+                            <a href="{% url 'accounts:home' %}"> Home </a>
+                        </li>
+                        <li class="dropdown active">
+                            <a href="{% url 'accounts:contact-page' %}"> Contact </a>
+                        </li>
+                        <li class="dropdown active">
+                            <a href="{% url 'accounts:register-page' %}"> Register</a>
+                        </li>
+                        <li class="dropdown active">
+                            <a href="{% url 'accounts:login-page' %}"> Login </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header navbar end -->
+
+
+    <section class="inner-bg over-layer-black" style="background-image: url('/static/admin/img/bg/4.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    
+
+    <!-- service start -->
+    <!-- service end -->
+    <hr>
+
+    <section>
+        <div class="container padding-bottom-80">
+            <div class="section-content">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="section-title margin-left-20 ">
+                            <h6>Contact</h6>
+                            <h2>Get in Touch</h2>
+                            <div class="small-line-border-2"></div>
+                        </div>
+                        <form id="ajax-contact" method="POST">
+                            <div class="col-md-6">
+                                <input type="text" name="name" id="name" class="form-control" placeholder="Your Name"
+                                    required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" name="email" id="email" class="form-control"
+                                    placeholder="Your Email" required>
+                            </div>
+                            <div class="col-md-12">
+                                <input type="text" name="subject" class="form-control" placeholder="Subject"
+                                    id="subject" required>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="contact-textarea">
+                                    <textarea class="form-control" rows="6" placeholder="Wright Message" id="message"
+                                        name="message" required></textarea>
+                                    <button class="btn btn-theme" type="submit" value="Submit Form">Send
+                                        Message</button>
+                                </div>
+                            </div>
+                            <div id="form-messages"></div>
+                        </form>
+                    </div>
+                    <div class="col-md-6">
+                        <div id="map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.5852168271485!2d85.31837961506122!3d27.66830198280809!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19d1be9baf71%3A0x48893d580864792f!2sPatan%20Hospital!5e0!3m2!1sen!2snp!4v1649433171997!5m2!1sen!2snp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- divider start -->
+    <section class="service-area over-layer-default" style="background-image:url(/static/admin/img/bg/5.jpg);">
+        {% include 'accounts/contact.html' %}
+    </section>
+    <!-- divider end -->
+
+    <!-- Footer Style start -->
+    <footer class="bg-faded">
+        {% include 'accounts/footer.html' %}
+    </footer>
+    <!-- Footer Style End -->
+
+
+    <a href="#" class="scrollup"><i class="pe-7s-up-arrow" aria-hidden="true"></i></a>
+    <!-- jQuery -->
+    <script type="text/javascript" src="{% static 'admin/js/jquery.min.js' %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script type="text/javascript" src="{% static 'admin/js/bootstrap.min.js' %}"></script>
+
+    <!-- all plugins and JavaScript -->
+    <script type="text/javascript" src="{% static 'admin/js/bootstrap-datepicker.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'admin/js/css3-animate-it.js' %}"></script>
+    <script type="text/javascript" src="{% static 'admin/js/bootstrap-dropdownhover.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'admin/js/owl.carousel.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'admin/js/gallery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'admin/js/player.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'admin/js/retina.js' %}"></script>
+    <script type="text/javascript" src="{% static 'admin/js/comming-soon.js' %}"></script>
+
+
+    <!-- Main Custom JS -->
+    <script type="text/javascript" src="{% static 'admin/js/script.js' %}"></script>
+
+
+</body>
+</html>

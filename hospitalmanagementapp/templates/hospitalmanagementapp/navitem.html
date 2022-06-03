@@ -1,0 +1,23 @@
+{% block content %}
+<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Doctor"
+        aria-expanded="true" aria-controls="collapseTwo">
+        <span>Doctor</span>
+    </a>
+    <div id="Doctor" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="{% url 'hospitalmanagementapp:doctor-create' %}">Add Doctor</a>
+            <a class="collapse-item" href="{% url 'hospitalmanagementapp:doctor-list' %}">List Doctor</a>
+        </div>
+</div>
+
+<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Patient"
+    aria-expanded="true" aria-controls="collapseTwo">
+    <span> Patient </span>
+    </a>
+    <div id="Patient" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="{% url 'hospitalmanagementapp:patient-create' %}"> Add Patient </a>
+            <a class="collapse-item" href="{% url 'hospitalmanagementapp:patient-list' %}"> List Patient</a>
+        </div>
+    </div>
+{% endblock content %}

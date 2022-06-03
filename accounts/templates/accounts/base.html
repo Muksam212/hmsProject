@@ -1,0 +1,174 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Hospital Management System</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="{% static 'admin/css/bootstrap.min.css' %}">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/css/style.css' %}">
+
+    <!-- Responsive stylesheet  -->
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/css/responsive.css' %}">
+
+    <!-- Favicon -->
+    
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    {% block css %}
+    {% endblock css %}
+</head>
+ 
+<body>
+
+
+
+    <!-- Header navbar start -->
+    <div class="header-topbar style-2">
+        
+        {% include 'accounts/header.html' %}
+    </div>
+
+    <div class="main-navbar conner-style style-2 position-fixed">
+        {% include 'accounts/navbar.html' %}
+    </div>
+    <!-- Header navbar end -->
+
+    <!-- Start  bootstrap-touch-slider Slider -->
+    <div id="bootstrap-touch-slider" class="carousel bs-slider fade  control-round indicators-line" data-ride="carousel" data-pause="hover" data-interval="5000" >
+
+        <!-- Indicators -->
+        
+        {% include 'accounts/slidebar.html' %}
+    </div> <!-- End  bootstrap-touch-slider Slider -->
+
+    <!-- divider start -->
+    <section class="about-3col animatedParent animateOnce">
+        <br>
+        
+        {% include 'accounts/driver.html' %}
+    </section>
+    <!-- divider end -->
+
+    <!-- welcome start -->
+    <section>
+       
+        {% include 'accounts/section.html' %}
+    </section>
+    <!-- welcome end -->
+
+    <!-- service start -->
+    <section class="service-area bg-f8 animatedParent animateOnce">
+        
+        {% include 'accounts/ourservices.html' %}
+    </section>
+    <!-- service end -->
+
+    <!-- appointment start -->
+    <!-- appointment end -->
+
+   <!-- divider start -->
+    <section class="service-area over-layer-default" style="background-image:url(img/bg/5.jpg);">
+       
+        {% include 'accounts/contact.html' %}
+    </section>
+    <!-- divider end -->
+
+     <!-- portfolio start -->
+    <!-- portfolio end -->
+
+   <!-- divider start -->
+    <section class="divider divider-video over-layer-white" style="background-image:url(/static/admin/img/bg/6.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                </div> 
+            </div> 
+        </div> 
+    </section>
+    <!-- divider end -->
+
+    <!-- department start -->    
+    <section class="bg-f8">
+        
+        {% include 'accounts/department.html' %}
+    </section>
+    <!-- department end -->
+
+    <!-- Team start -->
+    <section class="team-area">
+        
+        {% include 'accounts/experience.html' %}
+    </section>
+    <!-- Team end -->
+
+    <!-- Counter start -->
+    <section class="funfact-field over-layer-default" style="background-image: url('img/bg/6.jpg')">
+        
+        {% include 'accounts/counter.html' %}
+    </section>
+    <!-- Counter end -->
+
+    <!-- Testimonial start -->
+    <section class="testimonial">
+        
+        {% include 'accounts/client.html' %}
+    </section>
+    <!-- Testimonial end -->
+    
+   <!-- blog start -->
+   <!-- blog end -->
+
+    <!-- Footer Style start -->
+    <footer class="bg-faded">
+        
+        {% include 'accounts/footer.html' %}
+    </footer>
+
+    <!-- Footer Style End -->
+
+  
+    <a href="#" class="scrollup"><i class="pe-7s-up-arrow" aria-hidden="true"></i></a>
+    <!-- jQuery -->
+    <script type="text/javascript" src="{% static 'admin/js/jquery.min.js' %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script type="text/javascript" src="{% static 'admin/js/bootstrap.min.js' %}"></script>
+
+    <!-- all plugins and JavaScript -->
+    <script type="text/javascript" src="{% static 'admin/js/bootstrap-datepicker.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'admin/js/css3-animate-it.js' %}"></script>
+    <script type="text/javascript" src="{% static 'admin/js/bootstrap-dropdownhover.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'admin/js/owl.carousel.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'admin/js/gallery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'admin/js/player.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'admin/js/retina.js' %}"></script>
+    <script type="text/javascript" src="{% static 'admin/js/comming-soon.js' %}"></script>
+
+    <!-- Main Custom JS -->
+    <script type="text/javascript" src="{% static 'admin/js/script.js' %}"></script>
+    {% block js %}
+
+    {% endblock js %}
+
+</body>
+
+
+
+</html>
+

@@ -1,0 +1,145 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Medicative Hospital || Health & Medical HTML Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="{% static 'admin/css/bootstrap.min.css' %}">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/css/style.css' %}">
+
+    <!-- Responsive stylesheet  -->
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/css/responsive.css' %}">
+
+    <!-- Favicon -->
+    <link href="{% static 'admin/img/favicon.png' %}" rel="shortcut icon" type="image/png">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    {% block css %}
+    {% endblock css %}
+    <!--Sweat alert-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</head>
+
+<body>
+
+
+    <!-- Header navbar start -->
+    <div class="header-topbar style-2">
+        <div class="container padding-none">
+            <div class="row">
+                <div class="col-md-8 col-sm-6 welcome-top">
+                    <ul class="list-inline top-icon">
+                        <li><i class="fa fa-envelope"></i> contact@youdomain.com</li>
+                        <li><i class="fa fa-clock-o"></i> Mon - Sat 8.00 - 18.00</li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" data-hover="dropdown"
+                    data-animations-delay="1.8s" data-animations="fadeInUp">
+                    <ul class="nav navbar-nav bg-none navbar-right style-3">
+                        <li class="dropdown active">
+                            <a href="{% url 'accounts:home-page' %}"> Home </a>
+                        </li>
+                        <li class="dropdown active">
+                            <a href=""> Contact </a>
+                        </li>
+                        <li class="dropdown active">
+                            <a href="{% url 'accounts:register-page' %}"> Register</a>
+                        </li>
+                        <li class="dropdown active">
+                            <a href=""> Login </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header navbar end -->
+
+
+    <section class="inner-bg over-layer-black" style="background-image: url('/static/admin/img/bg/4.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="container">
+        <div class="section-content">
+            <div class="row">
+                <div class="col-md-7">
+                    <h2>Login Form</h2>
+                    {% if error %}
+                        <span class="error-msg" style="color:red;">{{ error }}</span>
+                    {% endif %}
+
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <br>
+                        <button class="btn btn-success"> Login </button>
+                        <span style="color:red;"> Did you forget your password? </span><br>
+                        <a href="" class="btn btn-light"> Click here to reset your password </a>
+                        
+                    </form>
+                    <a href="{% url 'accounts:register-page' %}" class="btn btn-theme"> Create Your Account? </a>
+                </div>
+                <div class="col-md-5">
+                    <div>
+                        <img alt="" src="{% static 'admin/img/services/8.jpg' %}" >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer Style start -->
+    <footer class="bg-faded">
+        {% include 'accounts/footer.html' %}
+    </footer>
+    <!-- Footer Style End -->
+
+
+    <a href="#" class="scrollup"><i class="pe-7s-up-arrow" aria-hidden="true"></i></a>
+    <!-- jQuery -->
+    <script type="text/javascript" src="{% static 'admin/js/jquery.min.js' %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script type="text/javascript" src="{% static 'admin/js/bootstrap.min.js' %}"></script>
+
+    <!-- all plugins and JavaScript -->
+    <script type="text/javascript" src="{% static 'admin/js/bootstrap-datepicker.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'admin/js/css3-animate-it.js' %}"></script>
+    <script type="text/javascript" src="{% static 'admin/js/bootstrap-dropdownhover.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'admin/js/owl.carousel.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'admin/js/gallery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'admin/js/player.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'admin/js/retina.js' %}"></script>
+    <script type="text/javascript" src="{% static 'admin/js/comming-soon.js' %}"></script>
+
+    <!-- Main Custom JS -->
+    <script type="text/javascript" src="{% static 'admin/js/script.js' %}"></script>
+</body>
+</html>

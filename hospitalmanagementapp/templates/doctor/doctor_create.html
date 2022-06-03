@@ -1,0 +1,46 @@
+{% extends 'hospitalmanagementapp/base.html' %}
+{% block content %}
+<form method="POST" action="{% url 'hospitalmanagementapp:doctor-create' %}" enctype="multipart/form-data">
+	{% csrf_token %}
+	<div class="modal-header">
+		<h4 class="modal-title"> Add Doctor</h4>
+	</div>
+	<div class="modal-body">
+		{{ form.non_field_errors }}
+		{% for f in form %}
+			<div class="form-group">
+				<label> {{ f.label }} </label>
+				{{ f }}
+			</div>
+		{% endfor %}
+		<img id="output_image"/ style="width:100px;" "height: 100px;">
+		<button type="submit" class="btn btn-primary"> Register </button>
+	</div>
+</form>
+{% endblock content %}
+
+{% block js %}
+{% if messages %}
+	{% for message in messages %}
+		<script>
+			swal({
+				title:'Good Job!',
+				text: '{{ message }}',
+				icon: 'success'
+			})
+		</script>
+	{% endfor %}
+{% endif %}
+
+<script>
+	$('#id_specialist').select2();
+	var loadFile = function(even){
+		var reader = new FileReader();
+		reader.onload = function(){
+			var output = document.getElementById('output_image');
+			output.src = reader.result;
+		};
+		reader.readAsDataURL(event.target.files[0]);
+	};
+</script>
+{% endblock js %}
