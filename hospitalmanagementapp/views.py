@@ -2,8 +2,10 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import *
 from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
+from django.http import HttpResponse
 
 
+from hospitalmanagementapp.utils import render_to_pdf, link_callback
 from hospitalmanagementapp.mixins import GroupRequiredMixin
 from hospitalmanagementapp.filters import DoctorFilter, PatientFilter
 from hospitalmanagementapp.models import Doctor, Patient
@@ -32,6 +34,7 @@ class DoctorList(GroupRequiredMixin,ListView):
 	model = Doctor
 	group_required = ['Doctor']
 	paginate_by = 1
+	
 
 	def get_context_data(self, **kwargs):
 		context = super().get_context_data(**kwargs)
@@ -92,6 +95,16 @@ class DoctorDelete(GroupRequiredMixin,SuccessMessageMixin, DeleteView):
 	def get_success_message(self, cleaned_data):
 		return self.success_message % cleaned_data
 
+#convert text data into pdf format data
+class DoctorDetailsPdf(View):
+	def get(self, request, *args, **kwargs):
+		doctor = Doctor.objects.all()
+		data = {
+			'count':doctor.count(),
+			'doctor':doctor
+		}
+		pdf = render_to_pdf('doctor/doctor_pdf.html', data)
+		return HttpResponse(pdf, content_type='application/pdf')
 
 #patient crud
 class PatientList(GroupRequiredMixin,ListView):

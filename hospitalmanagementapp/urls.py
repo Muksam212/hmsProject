@@ -1,6 +1,6 @@
 from django.urls import path
 from hospitalmanagementapp.views import (DashboardPage,DoctorCreate,DoctorList,DoctorUpdate,DoctorDelete, PatientCreate, 
-								PatientList,PatientUpdate, PatientDelete)
+								PatientList,PatientUpdate, PatientDelete,DoctorDetailsPdf)
 
 from .import views
 
@@ -16,6 +16,7 @@ urlpatterns = [
 	path('doctorList/', DoctorList.as_view(), name='doctor-list'),
 	path('doctor/<int:id>/update/',DoctorUpdate.as_view(), name='doctor-update'),
 	path('doctor/<int:id>/delete/', DoctorDelete.as_view(), name='doctor-delete'),
+	path('doctorPdf/',DoctorDetailsPdf.as_view(), name='doctor-pdf'),
 
 
 	#patient crud

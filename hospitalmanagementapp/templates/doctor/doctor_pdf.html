@@ -1,0 +1,49 @@
+{% block content %}
+<style>
+    th, td{
+        padding: 5px;
+    }
+    th{
+        font-size: 20px;
+        font-weight: bold;
+    }
+    td{
+        font-size: 8px;
+    }
+</style>
+<div class="container">
+    <div class="table-wrapper">
+        <h3> Doctor count : {{ count }} </h3>
+        <table border="0.1" style="border-collapse: collapse;" >
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Email</th>
+                    <th>Image</th>
+                    <th>Phone Number </th>
+                    <th>Specialist</th>
+                    <th>Date Created </th>
+                </tr>
+                {% for doct in doctor %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ doct.name }}</td>
+                    <td>{{ doct.address }}</td>
+                    <td>{{ doct.email }}</td>
+                    <td><img height="60px" width="70px" src="{{ doct.photo.path }}" target="_blank"></td>
+                    <td>{{ doct.ph_number }} </td>
+                    <td>{{ doct.specialist }}</td>
+                    <td>{{ doct.date_created }} </td>
+                    
+                </tr>
+                {% endfor %}
+            </thead>
+        </table>
+
+        <!-- Edit Author-->
+    </div>
+</div>
+
+{% endblock content %}
